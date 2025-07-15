@@ -36,4 +36,4 @@ jobs:
             docker pull asikurr/my-node-app:latest
             docker stop my-node-app || true
             docker rm my-node-app || true
-            docker run -d --name my-node-app -p 3000:3000 asikurr/my-node-app:latest
+            docker run -d --name my-node-app -p 4000:4000 asikurr/my-node-app:latest
