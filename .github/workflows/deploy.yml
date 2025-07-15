@@ -24,16 +24,16 @@ jobs:
         with:
           context: .
           push: true
-          tags: yourdockerusername/my-node-app:latest
+          tags: asikurr/my-node-app:latest
 
       - name: Deploy to VPS
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: 182.160.123.220
-          username: ${{ secrets.VPS_USERNAME }}
+          username: ${{ secrets.VPS_USERNAME }}  
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            docker pull yourdockerusername/my-node-app:latest
+            docker pull asikurr/my-node-app:latest
             docker stop my-node-app || true
             docker rm my-node-app || true
-            docker run -d --name my-node-app -p 4000:4000 yourdockerusername/my-node-app:latest
+            docker run -d --name my-node-app -p 3000:3000 asikurr/my-node-app:latest
